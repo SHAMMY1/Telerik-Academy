@@ -5,10 +5,10 @@
 //Examples:
 
 //n	Divided by 7 and 5?
-//3	false
-//0	false
-//5	false
-//7	false
+//3	    false
+//0	    true
+//5	    false
+//7	    false
 //35	true
 //140	true
 
@@ -18,7 +18,7 @@ class DivideBySevenAndFive
 {
 	static void Main()
 	{
-		string task = "Problem 3. Divide by 7 and 5\n\nWrite a Boolean expression that checks for given integer if it can be divided\n(without remainder) by 7 and 5 at the same time.\nExamples:\nn	Divided by 7 and 5?\n3	false\n0	false\n5	false\n7	false\n35	true\n140	true\n";
+		string task = "Problem 3. Divide by 7 and 5\n\nWrite a Boolean expression that checks for given integer if it can be divided\n(without remainder) by 7 and 5 at the same time.\nExamples:\nn	Divided by 7 and 5?\n3	false\n0	true\n5	false\n7	false\n35	true\n140	true\n";
 		string separator = new string('*', Console.WindowWidth);
 
 		Console.WriteLine(task);
