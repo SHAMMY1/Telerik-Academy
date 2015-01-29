@@ -12,6 +12,7 @@
 //1.5	1.6	   1.6
 
 using System;
+using System.Linq;
 
 class NumberComparer
 {
@@ -22,5 +23,14 @@ class NumberComparer
 
 		Console.WriteLine(task);
 		Console.WriteLine(separator);
+
+		Console.WriteLine("Enter two numbers(1,2):");
+		string input = Console.ReadLine();
+
+		double greaterNumber = input.Split(new char[] { ',', ' ' }, StringSplitOptions.RemoveEmptyEntries)
+			                        .Select(s => double.Parse(s))
+									.Max();
+
+		Console.WriteLine("Greater number: {0}", greaterNumber);
 	}
 }

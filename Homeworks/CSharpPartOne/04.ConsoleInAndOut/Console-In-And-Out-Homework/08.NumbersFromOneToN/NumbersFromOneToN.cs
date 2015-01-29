@@ -1,6 +1,7 @@
 ﻿//Problem 8. Numbers from 1 to n
 
-//Write a program that reads an integer number n from the console and prints all the numbers in the interval [1..n], each on a single line.
+//Write a program that reads an integer number n from the console and prints all the numbers in the interval [1..n], 
+//each on a single line.
 //Note: You may need to use a for-loop.
 
 //Examples:
@@ -29,5 +30,23 @@ class NumbersFromOneToN
 
 		Console.WriteLine(task);
 		Console.WriteLine(separator);
+
+		Console.WriteLine("Enter integer:");
+		int numberN = int.Parse(Console.ReadLine());
+
+		if (numberN > 1)
+		{
+			for (int i = 1; i <= numberN; i++)
+			{
+				Console.WriteLine(i);
+			}
+		}
+		else
+		{
+			for (int i = 1; i >= numberN; i--)
+			{
+				Console.WriteLine(i);
+			}
+		}
 	}
 }

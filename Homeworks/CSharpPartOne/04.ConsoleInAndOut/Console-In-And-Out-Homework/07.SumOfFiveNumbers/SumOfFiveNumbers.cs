@@ -9,6 +9,7 @@
 //1.5 3.14 8.2 -1 0	   11.84
 
 using System;
+using System.Linq;
 
 class SumOfFiveNumbers
 {
@@ -19,5 +20,14 @@ class SumOfFiveNumbers
 
 		Console.WriteLine(task);
 		Console.WriteLine(separator);
+
+		Console.WriteLine("Enter five numbers separated by a space(1 2 3 4 5):");
+		string input = Console.ReadLine();
+
+		double sum = input.Split(new char[]{' '},StringSplitOptions.RemoveEmptyEntries)
+			              .Select(s => double.Parse(s))
+						  .Sum();
+
+		Console.WriteLine("SUm = {0}", sum);
 	}
 }

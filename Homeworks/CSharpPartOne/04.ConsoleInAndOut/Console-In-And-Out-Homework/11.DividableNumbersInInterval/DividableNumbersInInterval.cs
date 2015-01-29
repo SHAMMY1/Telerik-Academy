@@ -23,5 +23,26 @@ class DividableNumbersInInterval
 
 		Console.WriteLine(task);
 		Console.WriteLine(separator);
+
+		Console.Write("Enter start: ");
+		uint start = uint.Parse(Console.ReadLine());
+
+		Console.Write("Enter end: ");
+		uint end = uint.Parse(Console.ReadLine());
+		uint count = 0;
+
+		while (start % 5 != 0)
+		{
+			start++;
+		}
+
+		do
+		{
+			count++;
+			start += 5;
+		} 
+		while (start <= end);
+
+		Console.WriteLine("p: {0}", count);
 	}
 }

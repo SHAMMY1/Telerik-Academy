@@ -18,5 +18,13 @@ class CirclePerimeterAndArea
 
 		Console.WriteLine(task);
 		Console.WriteLine(separator);
+
+		Console.WriteLine("Enter radius:");
+		double radius = double.Parse(Console.ReadLine());
+
+		double perimeter = Math.PI * radius * 2;
+		double area = Math.PI * Math.Pow(radius, 2);
+
+		Console.WriteLine("Perimeter: {0:F2}   Area: {1:F2}", perimeter, area);
 	}
 }

@@ -27,5 +27,22 @@ class FormattingNumbers
 
 		Console.WriteLine(task);
 		Console.WriteLine(separator);
+
+		Console.Write("Enter integer: ");
+		int numberA = int.Parse(Console.ReadLine());
+
+		Console.Write("Enter first floating-point: ");
+		double numberB = double.Parse(Console.ReadLine());
+
+		Console.Write("Enter second floating-point: ");
+		double numberC = double.Parse(Console.ReadLine());
+
+		string result = string.Format("|{0}|{1}|{2}|{3}|", Convert.ToString(numberA, 16).ToUpper().PadRight(10)
+														 , Convert.ToString(numberA, 2).ToUpper().PadLeft(10, '0')
+														 , numberB.ToString("F2").PadLeft(10)
+														 ,numberC.ToString("F3").PadRight(10));
+
+		Console.WriteLine("Result:\n{0}", result);
+
 	}
 }

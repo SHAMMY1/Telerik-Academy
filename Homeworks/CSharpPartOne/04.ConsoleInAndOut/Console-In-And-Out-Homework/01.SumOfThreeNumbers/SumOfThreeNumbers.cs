@@ -9,6 +9,7 @@
 //5.5	4.5	 20.1  30.1
 
 using System;
+using System.Linq;
 
 class SumOfThreeNumbers
 {
@@ -19,5 +20,14 @@ class SumOfThreeNumbers
 
 		Console.WriteLine(task);
 		Console.WriteLine(separator);
+
+		Console.WriteLine("Enter tree real numbers(1,2,3):");
+		string input = Console.ReadLine();
+
+		char[] separators = { ',',' ' };
+
+		double sum = input.Split(separators, StringSplitOptions.RemoveEmptyEntries).Select(c => double.Parse(c)).Sum();
+
+		Console.WriteLine("Sum = {0}", sum);
 	}
 }

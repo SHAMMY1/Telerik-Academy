@@ -31,5 +31,20 @@ class SumOfNNumbers
 
 		Console.WriteLine(task);
 		Console.WriteLine(separator);
+
+		Console.Write("Enter number N: ");
+		uint numberN = uint.Parse(Console.ReadLine());
+
+		double sum = 0;
+
+		for (uint i = 0; i < numberN; i++)
+		{
+			Console.Write("Enter number: ");
+			sum += double.Parse(Console.ReadLine());
+		}
+
+		Console.WriteLine("Sum: {0}", sum);
+
+
 	}
 }
