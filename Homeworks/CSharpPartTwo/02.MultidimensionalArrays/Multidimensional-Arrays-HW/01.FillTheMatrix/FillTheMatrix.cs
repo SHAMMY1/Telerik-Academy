@@ -40,5 +40,177 @@ class FillTheMatrix
 
 		Console.WriteLine(task);
 		Console.WriteLine(separator);
+
+		Console.Write("Enter matrix size: ");
+		int size = int.Parse(Console.ReadLine());
+
+		Console.WriteLine("Enter matrix variant(A,B,C,D)");
+		char variant = char.Parse(Console.ReadLine().ToUpper());
+
+		int padding = 8;
+
+		switch (variant)
+		{
+			case 'A':
+				Console.WriteLine("size: {0}X{0}  variant: {1})\n", size, variant);
+				PrintMatrix(GetMatrixA(size, size), padding);
+				break;
+			case 'B':
+				Console.WriteLine("size: {0}X{0}  variant: {1})\n", size, variant);
+				PrintMatrix(GetMatrixB(size, size), padding);
+				break;
+			case 'C':
+				Console.WriteLine("size: {0}X{0}  variant: {1})\n", size, variant);
+				PrintMatrix(GetMatrixC(size, size), padding);
+				break;
+			case 'D':
+				Console.WriteLine("size: {0}X{0}  variant: {1})\n", size, variant);
+				PrintMatrix(GetMatrixD(size, size), padding);
+				break;
+			default:
+				Console.WriteLine("Wrong variant");
+				break;
+		}
+	}
+
+	static int[,] GetMatrixA(int height,int width)
+	{
+		int[,] matrix = new int[height, width];
+
+		for (int col = 0; col < matrix.GetLength(1); col++)
+		{
+			for (int row = 0; row < matrix.GetLength(0); row++)
+			{
+				matrix[row, col] = (row + 1) + (col * matrix.GetLength(0));
+			}
+		}
+
+		return matrix;
+	}
+
+	static int[,] GetMatrixB(int height, int width)
+	{
+		int[,] matrix = new int[height, width];
+
+		for (int col = 0; col < matrix.GetLength(1); col++)
+		{
+			if (col %  2 == 0)
+			{
+				for (int row = 0; row < matrix.GetLength(0); row++)
+				{
+					matrix[row, col] = (row + 1) + (col * matrix.GetLength(0));
+				}
+			}
+			else
+			{
+				for (int row = 0; row < matrix.GetLength(0); row++)
+				{
+					matrix[matrix.GetLength(0) - row - 1, col] = (row + 1) + (col * matrix.GetLength(0));
+				}
+			}
+		}
+
+		return matrix;
+	}
+
+	static int[,] GetMatrixC(int height, int width)
+	{
+		int[,] matrix = new int[height, width];
+
+		int number = 1;
+
+		int[] position = new int[2];
+
+		for (int i = matrix.GetLength(0) - 1; i >= 0; i--)
+		{
+			position[0] = i;
+			position[1] = 0;
+
+			do
+			{
+				matrix[position[0], position[1]] = number;
+				number++;
+				position[0]++;
+				position[1]++;
+			} while (position[0] < matrix.GetLength(0));
+			
+		}
+
+		for (int i = 1; i < matrix.GetLength(1); i++)
+		{
+			position[1] = i;
+			position[0] = 0;
+
+			do
+			{
+				matrix[position[0], position[1]] = number;
+				number++;
+				position[0]++;
+				position[1]++;
+			} while (position[1] < matrix.GetLength(1));
+		}
+
+		return matrix;
+	}
+
+	static int[,] GetMatrixD(int height, int width)
+	{
+		int[,] matrix = new int[height, width];
+
+		int[] directions = { 1, 0 };
+
+		int[] pozition = { 0, 0 };
+		for (int i = 1; i <= matrix.GetLength(0) * matrix.GetLength(1); i++)
+		{
+			matrix[pozition[0], pozition[1]] = i;
+
+			if (pozition[0] + directions[0] >= matrix.GetLength(0)||pozition[1] +directions[1] >= matrix.GetLength(1) ||pozition[0] + directions[0] < 0||pozition[1] + directions[1] <0 ||matrix[pozition[0] + directions[0], pozition[1] + directions[1]] != 0)
+			{
+				if (directions[0] == 0)
+				{
+					if (directions[1] > 0)
+					{
+						directions[0]--;
+						directions[1]--;
+					}
+					else
+					{
+						directions[0]++;
+						directions[1]++;
+					}
+				}
+				else
+				{
+					if (directions[0] > 0)
+					{
+						directions[1]++;
+						directions[0]--;
+					}
+					else
+					{
+						directions[1]--;
+						directions[0]++;
+					}
+				}
+			}
+
+			pozition[0] += directions[0];
+			pozition[1] += directions[1];
+		}
+
+		return matrix;
+	}
+
+	static void PrintMatrix(int[,] matrix,int padding)
+	{
+		for (int row = 0; row < matrix.GetLength(0); row++)
+		{
+			for (int col = 0; col < matrix.GetLength(1); col++)
+			{
+				Console.Write("{0}", matrix[row,col].ToString().PadRight(padding));
+			}
+
+			Console.WriteLine();
+		}
 	}
 }
