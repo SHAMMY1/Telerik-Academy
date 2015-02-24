@@ -19,5 +19,15 @@ class SayHello
 
 		Console.WriteLine(task);
 		Console.WriteLine(separator);
+
+		GetNameAndPrintWhitHallo();
+	}
+
+	private static void GetNameAndPrintWhitHallo()
+	{
+		Console.Write("Please enter name: ");
+		string name = Console.ReadLine();
+
+		Console.WriteLine("\nHello, {0}!", name);
 	}
 }

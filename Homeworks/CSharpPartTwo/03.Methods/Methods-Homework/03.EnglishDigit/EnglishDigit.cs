@@ -20,5 +20,20 @@ class EnglishDigit
 
 		Console.WriteLine(task);
 		Console.WriteLine(separator);
+
+		Console.Write("Enter number: ");
+		int number = int.Parse(Console.ReadLine());
+
+		string lastDigitAsWord = GetLastDigitAsWord(number);
+		Console.WriteLine("\nLast digit as word: {0}", lastDigitAsWord);
+	}
+
+	private static string GetLastDigitAsWord(int number)
+	{
+		string[] digitsAsWords = { "zero", "one", "two", "three", "tour", "five", "six", "seven", "eight", "nine" };
+
+		byte lastDigit = (byte)Math.Abs((number % 10));
+
+		return digitsAsWords[lastDigit];
 	}
 }

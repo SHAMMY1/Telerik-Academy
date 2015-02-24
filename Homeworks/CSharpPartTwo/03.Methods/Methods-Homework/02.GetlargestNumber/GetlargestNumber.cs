@@ -4,6 +4,7 @@
 //Write a program that reads 3 integers from the console and prints the largest of them using the method GetMax().
 
 using System;
+using System.Collections.Generic;
 
 class GetlargestNumber
 {
@@ -15,5 +16,23 @@ class GetlargestNumber
 
 		Console.WriteLine(task);
 		Console.WriteLine(separator);
+
+		List<int> numbers = new List<int>();
+
+		for (int i = 0; i < 3; i++)
+		{
+			Console.Write("Enetr number: ");
+			numbers.Add(int.Parse(Console.ReadLine()));
+		}
+
+		int maxNumber = GetMax(GetMax(numbers[0],numbers[1]), numbers[2]);
+
+		Console.WriteLine("\nNumbers: {0}\nMax number: {1}", string.Join(", ",numbers), maxNumber);
+		
+	}
+
+	private static int GetMax(int first, int second)
+	{
+		return first > second ? first : second;
 	}
 }

@@ -47,6 +47,12 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\05.LargerThanNeighbours\05.LargerThanNeighbours.csproj">
+      <Project>{d202294d-d5a8-4ff6-9b38-2a83d63a7550}</Project>
+      <Name>05.LargerThanNeighbours</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
