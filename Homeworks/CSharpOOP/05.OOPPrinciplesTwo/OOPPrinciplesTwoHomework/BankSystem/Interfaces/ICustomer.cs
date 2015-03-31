@@ -6,7 +6,7 @@ using System.Text;
 
 namespace BankSystem.Interfaces
 {
-	class ICustomer
+	public interface ICustomer
 	{
 		string Name { get; }
 

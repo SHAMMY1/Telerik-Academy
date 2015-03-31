@@ -53,6 +53,7 @@
 			this.Customer = customer;
 			this.Balance = balance;
 			this.InterestRate = interestRate;
+            customer.AddAccount(this);
 		}
 
 		public virtual double CalculateInterest(uint months)
@@ -65,7 +66,7 @@
 			this.Balance += money;
 		}
 
-		public void WithDraw(decimal money)
+		public virtual void WithDraw(decimal money)
 		{
 			this.Balance -= money;
 		}

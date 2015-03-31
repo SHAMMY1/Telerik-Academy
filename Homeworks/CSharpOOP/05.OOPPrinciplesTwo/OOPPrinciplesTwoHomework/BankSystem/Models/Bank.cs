@@ -22,7 +22,7 @@
 			}
 		}
 
-		public List<IAccount> Accounts
+		public ICollection<IAccount> Accounts
 		{
 			get 
 			{ 
@@ -35,14 +35,25 @@
 			}
 		}
 
-		public List<ICustomer> Customers
+		public ICollection<ICustomer> Customers
 		{
 			get 
 			{ 
 				return new List<ICustomer>(this.customers); 
 			}
+
+            private set
+            {
+                this.customers = value;
+            }
 		}
 
+        public Bank(string name)
+        {
+            this.Name = name;
+            this.Customers = new List<ICustomer>();
+            this.Accounts = new List<IAccount>();
+        }
 		public void AddAccount(IAccount account)
 		{
 			this.accounts.Add(account);
@@ -62,5 +73,8 @@
 		{
 			this.customers.Remove(customer);
 		}
-	}
+
+
+
+    }
 }

@@ -3,6 +3,6 @@
 	public enum CustomerType
 	{
 		Individual,
-		companie
+		Companie
 	}
 }
